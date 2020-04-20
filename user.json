@@ -1,0 +1,26 @@
+db.createCollection(
+    "User", {
+        validator: {
+            $jsonSchema: {
+                bsonType: "object",
+                required: ["pseudonyme", "preference", "etoiles"],
+                properties: {
+                    _id: {},
+                    pseudonyme: {
+                        bsonType: "string",
+                        description: "Chaine de caractère requis",                
+                    },
+                    preference: {
+                        bsonType: "array",
+                        description: "Table de chaine de titre de film"
+                    },
+                    etoiles: {
+                        bsonType: "int",
+                        description: "nombre entier requis !"
+                    }
+                }
+            }
+                
+        } 
+    }
+)
